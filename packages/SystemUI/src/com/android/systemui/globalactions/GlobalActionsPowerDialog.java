@@ -44,7 +44,7 @@ public class GlobalActionsPowerDialog {
         ViewGroup listView = (ViewGroup) LayoutInflater.from(context).inflate(
                 com.android.systemui.res.R.layout.global_actions_power_dialog_flow, null);
 
-        Flow flow = listView.findViewById(com.android.systemui.R.id.power_flow);
+        Flow flow = listView.findViewById(com.android.systemui.res.R.id.power_flow);
 
         for (int i = 0; i < adapter.getCount(); i++) {
             View action = adapter.getView(i, null, listView);
@@ -56,7 +56,7 @@ public class GlobalActionsPowerDialog {
         Resources res = context.getResources();
 
         int nElementsWrap = res.getInteger(
-                com.android.systemui.R.integer.power_menu_lite_max_columns);
+                com.android.systemui.res.R.integer.power_menu_lite_max_columns);
         int nChildren = listView.getChildCount() - 1; // don't count flow element
 
         // Avoid having just one action on the last row if there are more than 2 columns because
@@ -67,7 +67,7 @@ public class GlobalActionsPowerDialog {
         flow.setMaxElementsWrap(nElementsWrap);
 
         Dialog dialog = new Dialog(context,
-                com.android.systemui.R.style.Theme_SystemUI_Dialog_GlobalActionsLite);
+                com.android.systemui.res.R.style.Theme_SystemUI_Dialog_GlobalActionsLite);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(listView);
 
@@ -88,7 +88,7 @@ public class GlobalActionsPowerDialog {
                     | WindowManager.LayoutParams.FLAG_DIM_BEHIND);
             // Set blur behind radius
             int blurBehindRadius = context.getResources()
-                    .getDimensionPixelSize(com.android.systemui.R.dimen.max_window_blur_radius);
+                    .getDimensionPixelSize(com.android.systemui.res.R.dimen.max_window_blur_radius);
             window.getAttributes().setBlurBehindRadius(blurBehindRadius);
             // Set dim only when blur is enabled.
             window.setDimAmount(0.54f);
